@@ -1,0 +1,185 @@
+@layer base {
+    /* Variables */
+    :root {
+        --primary-color: #4f46e5;
+        --primary-hover: #4338ca;
+        --danger-color: #ef4444;
+        --danger-hover: #dc2626;
+    }
+}
+
+/* General buttons */
+.btn {
+    @apply inline-flex justify-center rounded-md border px-4 py-2 text-sm font-medium 
+           focus:outline-none focus:ring-2 focus:ring-offset-2 transition-colors duration-200;
+}
+
+.btn-primary {
+    @apply border-transparent bg-indigo-600 text-white hover:bg-indigo-700
+           focus:ring-indigo-500;
+}
+
+.btn-danger {
+    @apply border-transparent bg-red-600 text-white hover:bg-red-700
+           focus:ring-red-500;
+}
+
+.btn-secondary {
+    @apply border-gray-300 bg-white text-gray-700 hover:bg-gray-50
+           focus:ring-indigo-500;
+}
+
+/* Pagination */
+.pagination-button {
+    @apply inline-flex items-center px-4 py-2 border border-gray-300 text-sm font-medium 
+           rounded-md text-gray-700 bg-white hover:bg-gray-50 transition-colors duration-200;
+}
+
+.pagination-button:disabled {
+    @apply opacity-50 cursor-not-allowed;
+}
+
+/* Modal */
+.modal-button {
+    @apply mt-3 w-full inline-flex justify-center rounded-md border border-gray-300 
+           shadow-sm px-4 py-2 bg-white text-base font-medium text-gray-700 
+           hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 
+           focus:ring-indigo-500 sm:mt-0 sm:ml-3 sm:w-auto sm:text-sm;
+}
+
+/* Task status */
+.status-badge {
+    @apply px-2 inline-flex text-xs leading-5 font-semibold rounded-full;
+}
+
+/* Table */
+.task-table {
+    @apply min-w-full divide-y divide-gray-200;
+}
+
+.task-table th {
+    @apply px-6 py-3 bg-gray-50 text-left text-xs font-medium text-gray-500 
+           uppercase tracking-wider sticky top-0;
+}
+
+.task-table td {
+    @apply px-6 py-4 whitespace-nowrap text-sm text-gray-500;
+}
+
+/* Form fields */
+.form-label {
+    @apply block text-sm font-medium text-gray-700;
+}
+
+.form-input {
+    @apply mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full 
+           shadow-sm sm:text-sm border-gray-300 rounded-md;
+}
+
+.form-select {
+    @apply mt-1 block w-full pl-3 pr-10 py-2 text-base border-gray-300 
+           focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm 
+           rounded-md;
+}
+
+/* Filter container */
+.filters-container {
+    @apply bg-white shadow rounded-lg p-6 mb-6 space-y-4;
+}
+
+/* Animations */
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+.fade-in {
+    animation: fadeIn 0.3s ease-in;
+}
+
+/* Responsive */
+@media (max-width: 640px) {
+    .task-table {
+        @apply block overflow-x-auto;
+    }
+    
+    .filters-container {
+        @apply p-4;
+    }
+    
+    .pagination-button {
+        @apply px-3 py-1;
+    }
+}
+
+/* Custom Toast notifications */
+.toastify {
+    @apply rounded-lg shadow-lg;
+}
+
+/* Tooltips */
+.tooltip {
+    @apply invisible absolute;
+}
+
+.has-tooltip:hover .tooltip {
+    @apply visible z-50;
+}
+
+/* Skeleton loading */
+.skeleton {
+    @apply animate-pulse bg-gray-200;
+}
+
+.skeleton-text {
+    @apply h-4 bg-gray-200 rounded;
+}
+
+/* JSON data preview */
+.json-preview {
+    @apply font-mono text-sm bg-gray-50 p-4 rounded-md overflow-x-auto;
+}
+
+.json-preview pre {
+    @apply m-0;
+}
+
+/* Loading states */
+.loading-overlay {
+    @apply absolute inset-0 bg-white bg-opacity-75 flex items-center justify-center;
+}
+
+.loading-spinner {
+    @apply animate-spin rounded-full h-8 w-8 border-4 border-indigo-500 
+           border-t-transparent;
+}
+
+/* Accessibility improvements */
+.sr-only {
+    @apply absolute w-px h-px p-0 -m-px overflow-hidden whitespace-nowrap border-0;
+}
+
+[x-cloak] {
+    display: none !important;
+}
+
+/* refresh */
+.refresh-countdown {
+    @apply inline-flex items-center justify-center text-xs font-medium text-gray-500;
+}
+
+.refresh-select {
+    @apply mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 
+           focus:ring-indigo-500 sm:text-sm;
+}
+
+/* Animación para el contador */
+@keyframes pulse {
+    0% { opacity: 1; }
+    50% { opacity: 0.5; }
+    100% { opacity: 1; }
+}
+
+.refresh-active {
+    animation: pulse 2s infinite;
+}
